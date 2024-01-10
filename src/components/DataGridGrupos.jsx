@@ -3,8 +3,8 @@ import Box from '@mui/material/Box';
 import { DataGrid } from '@mui/x-data-grid';
 
 const columns = [
- { field: 'grupos', headerName: 'Grupos', width: 150 },
- { field: 'zonas', headerName: 'Zonas', width: 150 },
+ { field: 'grupos', headerName: 'Grupos',flex: 1 },
+ { field: 'zonas', headerName: 'Zonas',flex: 1 },
  {
     field: 'numeroDeIntegrantes',
     headerName: 'Número de integrantes',
@@ -13,12 +13,12 @@ const columns = [
  {
     field: 'coordinador',
     headerName: 'Coordinador',
-    width: 150,
+   flex: 1,
  },
  {
     field: 'telefono',
     headerName: 'Teléfono',
-    width: 130,
+    flex: 1,
  },
 ];
 
@@ -31,21 +31,12 @@ const rows = [
 
 export default function DataGridGrupos() {
  return (
-    <Box sx={{ height: 400, width:900}}>
-      <DataGrid
-        rows={rows}
-        columns={columns}
-        initialState={{
-          pagination: {
-            paginationModel: {
-              pageSize: 5,
-            },
-          },
-        }}
-        pageSizeOptions={[4]}
-        checkboxSelection
-        disableRowSelectionOnClick
-      />
-    </Box>
+  <DataGrid
+  rows={rows}
+  columns={columns}
+  pageSize={4}
+  disableRowSelectionOnClick
+  autoHeight
+/>
  );
 }
